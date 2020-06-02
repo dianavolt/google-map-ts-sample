@@ -1,3 +1,13 @@
+
+// Instructions to every other class
+// on how they can be an argument to addMarker()
+interface Mapable {
+	location: {
+		lat: number,
+		lng: number
+	}
+}
+
 export class CustomMap {
   private googleMap: google.maps.Map;
 
@@ -7,6 +17,16 @@ export class CustomMap {
 			center: {
 				lat: 0,
 				lng: 0
+			}
+		})
+	}
+
+	addMarker(mappable: Mapable): void {
+		new google.maps.Marker({
+			map: this.googleMap,
+			position: {
+				lat: mappable.location.lat,
+				lng: mappable.location.lng
 			}
 		})
 	}
