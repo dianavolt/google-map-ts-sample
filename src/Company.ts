@@ -1,6 +1,7 @@
 import faker from 'faker'
+import { Mapable } from './CustomMap';
 
-export class Company {
+export class Company implements Mapable {
 	companyName: string;
 	catchPhrase: string;
 	location: {
